@@ -536,6 +536,17 @@
 
           let iterationCount = 100000;
 
+          // Use Bonsai style="--m: 10px"
+          console.log('Use Bonsai --m = 10px');
+          console.time('bonsai');
+
+          for (let i = 0; i < iterationCount; i++) {
+            target.style.setProperty('--m', '10px');
+          }
+
+          console.timeEnd('bonsai');
+          target.style.removeProperty('--m');
+
           // Set style="margin: 10px"
           console.log('Set style to margin = 10px');
           console.time('style');
@@ -558,16 +569,6 @@
 
           console.timeEnd('class');
           target.className = '';
-
-          // Use Bonsai style="--m: 10px"
-          console.log('Use Bonsai --m = 10px');
-          console.time('bonsai');
-
-          for (let i = 0; i < iterationCount; i++) {
-            target.style.setProperty('--m', '10px');
-          }
-
-          console.timeEnd('bonsai');
         }
       </script>
     </section>
